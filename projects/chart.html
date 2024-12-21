@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Penjualan</title>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Styling Dashboard */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #2a2d3e;
+            color: #fff;
+        }
+
+        h2 {
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #333952;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            color: #fff;
+            flex: 1 1 calc(50% - 40px);
+            max-width: 600px;
+        }
+
+        /* Styling Tabel */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #333952;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #444b6e;
+            text-align: center;
+            padding: 8px;
+            color: #fff;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #3a3f58;
+        }
+
+        /* Grafik Styling */
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>Laporan Penjualan</h2>
+    <div class="container">
+        <div class="card">
+            <!-- Tabel Penjualan -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bulan</th>
+                        <th>Januari</th>
+                        <th>Februari</th>
+                        <th>Maret</th>
+                        <th>April</th>
+                        <th>Mei</th>
+                        <th>Juni</th>
+                        <th>Juli</th>
+                        <th>Agustus</th>
+                        <th>September</th>
+                        <th>Oktober</th>
+                        <th>November</th>
+                        <th>Desember</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2022</td>
+                        <td>4017</td><td>6135</td><td>7091</td><td>5841</td><td>5036</td><td>4547</td>
+                        <td>3467</td><td>3970</td><td>6313</td><td>3595</td><td>9207</td><td>5945</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>2416</td><td>4136</td><td>7935</td><td>8004</td><td>9505</td><td>5026</td>
+                        <td>6108</td><td>6343</td><td>9404</td><td>9280</td><td>9287</td><td>8689</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card">
+            <!-- Grafik Chart.js -->
+            <canvas id="salesChart" width="800" height="400"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Data Penjualan
+        const labels = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        const data2022 = [4017, 6135, 7091, 5841, 5036, 4547, 3467, 3970, 6313, 3595, 9207, 5945];
+        const data2023 = [2416, 4136, 7935, 8004, 9505, 5026, 6108, 6343, 9404, 9280, 9287, 8689];
+
+        // Konfigurasi Chart.js
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        const salesChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: '2022',
+                        data: data2022,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2,
+                        fill: true
+                    },
+                    {
+                        label: '2023',
+                        data: data2023,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 2,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Laporan Penjualan Tahun 2022 dan 2023',
+                        color: '#fff'
+                    },
+                    legend: {
+                        labels: {
+                            color: '#fff'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Jumlah Penjualan',
+                            color: '#fff'
+                        },
+                        ticks: {
+                            color: '#fff'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Bulan',
+                            color: '#fff'
+                        },
+                        ticks: {
+                            color: '#fff'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
