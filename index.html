@@ -13,6 +13,78 @@
     <!-- custom css -->
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    .filter-menu {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .filter-btn {
+        padding: 10px 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+        background: #007bff;
+        color: white;
+        border-color: #007bff;
+    }
+
+    .portfolio-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .portfolio-box {
+        display: none; /* Default hidden */
+        width: 300px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .portfolio-box img {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .portfolio-layer {
+        padding: 15px;
+    }
+
+    .portfolio-layer h4 {
+        margin: 10px 0;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .portfolio-layer p {
+        font-size: 14px;
+        color: #555;
+    }
+
+    .portfolio-layer a {
+        display: inline-block;
+        margin-top: 10px;
+        color: #007bff;
+        font-size: 20px;
+        transition: color 0.3s ease;
+    }
+
+    .portfolio-layer a:hover {
+        color: #0056b3;
+    }
+</style>
 
 <body>
 
@@ -103,93 +175,109 @@
 
     <!-- Section Portfolio Design -->
 
-    <section class="portfolio" id="portfolio">
-        <h2 class="heading">Latest <span>Project</span></h2>
+    <section id="portfolio" class="site-section">
+        <div class="container">
+            <div class="text-center">
+                <h3>My Portfolio</h3>
+                <img src="assets/img/lines.svg" class="img-lines" alt="lines">
+            </div>
     
-    <div class="portfolio-container">
-        <div class="portfolio-box">
-            <img src="images/portfolio1.jpg" alt="">
-            <div class="portfolio-layer">
-                <h4>Introduction to HTML</h4>
-                <p>has successfully completed the course by demonstrating theoretical and practical understanding of In HTML.</p>
-            <a href="https://www.sololearn.com/certificates/CC-LQDXWZMV" target="_blank"><i class='bx bx-link-external' ></i></a>    
+            <!-- Filter Menu -->
+            <div class="filter-menu">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="certificate">Certificate</button>
+                <button class="filter-btn" data-filter="projek">Projek</button>
+            </div>
+    
+            <!-- Portfolio Items -->
+            <div class="portfolio-container">
+                <!-- Certificate Items -->
+                <div class="portfolio-box certificate">
+                    <img src="images/portfolio1.jpg" alt="">
+                    <div class="portfolio-layer">
+                        <h4>Introduction to HTML</h4>
+                        <p>Successfully completed the course by demonstrating theoretical and practical understanding of HTML.</p>
+                        <a href="https://www.sololearn.com/certificates/CC-LQDXWZMV" target="_blank"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+    
+                <div class="portfolio-box certificate">
+                    <img src="images/portfolio2.jpg" alt="">
+                    <div class="portfolio-layer">
+                        <h4>Introduction to CSS</h4>
+                        <p>Successfully completed the course by demonstrating theoretical and practical understanding of CSS.</p>
+                        <a href="https://www.sololearn.com/certificates/CC-PGFALRBT" target="_blank"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+    
+                <div class="portfolio-box certificate">
+                    <img src="images/portfolio3.jpg" alt="">
+                    <div class="portfolio-layer">
+                        <h4>Introduction to JavaScript</h4>
+                        <p>Successfully completed the course by demonstrating theoretical and practical understanding of JavaScript.</p>
+                        <a href="https://www.sololearn.com/certificates/CC-CYEWS06W" target="_blank"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+    
+                <div class="portfolio-box certificate">
+                    <img src="images/portfolio4.jpg" alt="">
+                    <div class="portfolio-layer">
+                        <h4>Intermediate to JavaScript</h4>
+                        <p>Successfully completed the course by demonstrating theoretical and practical understanding of JavaScript.</p>
+                        <a href="https://www.sololearn.com/certificates/CC-BSAJTS0Y" target="_blank"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+    
+                <!-- Projek Items -->
+                <div class="portfolio-box projek">
+                    <img src="images/portfolio5.jpg" alt="">
+                    <div class="portfolio-layer">
+                        <h4>Calculator</h4>
+                        <p>Web programming project 1.</p>
+                        <a href="cc/index.html" target="_blank"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+    
+                <div class="portfolio-box projek">
+                    <img src="images/portfolio6.jpg" alt="">
+                    <div class="portfolio-layer">
+                        <h4>Form Login</h4>
+                        <p>Web programming project 1.</p>
+                        <a href="bulma-login-template-master/index.html" target="_blank"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+    
+                <div class="portfolio-box projek">
+                    <img src="images/portfolio6.jpg" alt="">
+                    <div class="portfolio-layer">
+                        <h4>Chart</h4>
+                        <p>Web programming project 1 chart.</p>
+                        <a href="projects/chart.html" target="_blank"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+    
+                <div class="portfolio-box projek">
+                    <img src="images/portfolio6.jpg" alt="">
+                    <div class="portfolio-layer">
+                        <h4>Snake Game</h4>
+                        <p>Web programming project 1 snake.</p>
+                        <a href="projects/snake/snake.html" target="_blank"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+    
+                <div class="portfolio-box projek">
+                    <img src="images/portfolio6.jpg" alt="">
+                    <div class="portfolio-layer">
+                        <h4>Manajemen Karyawan</h4>
+                        <p>Web programming project UTS.</p>
+                        <a href="https://muhammadramzy27.github.io/OYO/" target="_blank"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="portfolio-box">
-            <img src="images/portfolio2.jpg" alt="">
-            <div class="portfolio-layer">
-                <h4>Introduction to CSS</h4>
-                <p>has successfully completed the course by demonstrating theoretical and practical understanding of In CSS.</p>
-            <a href="https://www.sololearn.com/certificates/CC-PGFALRBT" target="_blank"><i class='bx bx-link-external' ></i></a>    
-            </div>
-        </div>
-
-        <div class="portfolio-box">
-            <img src="images/portfolio3.jpg" alt="">
-            <div class="portfolio-layer">
-                <h4>Introduction to JavaScript</h4>
-                <p>has successfully completed the course by demonstrating theoretical and practical understanding of In JavaScript.</p>
-            <a href="https://www.sololearn.com/certificates/CC-CYEWS06W" target="_blank"><i class='bx bx-link-external' ></i></a>    
-            </div>
-        </div>
-
-        <div class="portfolio-box">
-            <img src="images/portfolio4.jpg" alt="">
-            <div class="portfolio-layer">
-                <h4>Intermediate to JavaScript</h4>
-                <p>has successfully completed the course by demonstrating theoretical and practical understanding of In JavaScript.</p>
-            <a href="https://www.sololearn.com/certificates/CC-BSAJTS0Y" target="_blank"><i class='bx bx-link-external' ></i></a>    
-            </div>
-        </div>
-
-        <div class="portfolio-box">
-            <img src="images/portfolio5.jpg" alt="">
-            <div class="portfolio-layer">
-                <h4>CALCULATOR</h4>
-                <p>TUGAS PEMROGRAMAN WEB 1.</p>
-            <a href="cc/index.html" target="_blank"><i class='bx bx-link-external' ></i></a>    
-            </div>
-        </div>
-
-        <div class="portfolio-box">
-            <img src="images/portfolio6.jpg" alt="">
-            <div class="portfolio-layer">
-                <h4>Form Login</h4>
-                <p>TUGAS PEMROGRAMAN WEB 1.</p>
-            <a href="bulma-login-template-master/index.html" target="_blank"><i class='bx bx-link-external' ></i></a>    
-            </div>
-        </div>
-
-        <div class="portfolio-box">
-            <img src="images/portfolio6.jpg" alt="">
-            <div class="portfolio-layer">
-                <h4>CHART</h4>
-                <p>TUGAS PEMROGRAMAN WEB 1 CHART.</p>
-            <a href="projects/chart.html" target="_blank"><i class='bx bx-link-external' ></i></a>    
-            </div>
-        </div>
-
-        <div class="portfolio-box">
-            <img src="images/portfolio6.jpg" alt="">
-            <div class="portfolio-layer">
-                <h4>SNAKE GAME</h4>
-                <p>TUGAS PEMROGRAMAN WEB 1 SNAKE.</p>
-            <a href="projects/snake/snake.html" target="_blank"><i class='bx bx-link-external' ></i></a>    
-            </div>
-        </div>
-
-        <div class="portfolio-box">
-            <img src="images/portfolio6.jpg" alt="">
-            <div class="portfolio-layer">
-                <h4>MANAJEMEN KARYAWAN</h4>
-                <p>TUGAS UTS PEMROGRAMAN WEB 1.</p>
-            <a href="https://muhammadramzy27.github.io/OYO/" target="_blank"><i class='bx bx-link-external' ></i></a>    
-            </div>
-        </div>
-    </div>
     </section>
-
+    
+    
     <!-- contact section design -->
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
@@ -235,6 +323,34 @@
 
     <!-- custom js -->
         <script src="script.js"></script>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                const portfolioItems = document.querySelectorAll('.portfolio-box');
+        
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        // Remove active class from all buttons
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        this.classList.add('active');
+        
+                        const filter = this.getAttribute('data-filter');
+        
+                        portfolioItems.forEach(item => {
+                            if (filter === 'all' || item.classList.contains(filter)) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+        
+                // Trigger "All" filter on load
+                document.querySelector('.filter-btn[data-filter="all"]').click();
+            });
+        </script>
 </body>
 
 </html>
